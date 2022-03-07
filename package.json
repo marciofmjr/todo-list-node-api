@@ -2,9 +2,10 @@
   "name": "todo-list-node-api",
   "version": "0.0.1",
   "description": "todo list api",
-  "main": "src/server.js",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "start": "node dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/marciofmjr/todo-list-node-api/issues"
   },
-  "homepage": "https://github.com/marciofmjr/todo-list-node-api#readme"
+  "homepage": "https://github.com/marciofmjr/todo-list-node-api#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "babel-plugin-module-resolver": "^4.1.0"
+  }
 }
