@@ -6,6 +6,7 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node dist/server.js",
+    "dev": "npx nodemon --watch 'src/' --exec 'ts-node-dev -r tsconfig-paths/register --exit-child --respawn --ignore-watch node_modules --no-notify src/server.ts' -e ts",
     "lint": "npx eslint src/**/*.ts",
     "lint:fix": "npx eslint src/**/*.ts --fix"
   },
@@ -41,5 +42,10 @@
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.13.0",
     "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2"
   }
 }
