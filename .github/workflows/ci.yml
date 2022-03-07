@@ -1,0 +1,45 @@
+name: CI/CD
+on: [push]
+jobs:
+    CI-CD:
+        runs-on: ubuntu-latest
+
+        services:
+            postgres:
+                image: postgres
+                env:
+                    POSTGRES_PASSWORD: postgres
+                options: >-
+                    --health-cmd pg_isready
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
+                ports:
+                    - 5432:5432
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "14"
+
+            - name: Cache dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ~/.npm
+                  key: npm-${{ hashFiles('package-lock.json') }}
+                  restore-keys: npm-
+
+            - name: Install dependencies
+              run: npm ci --ignore-scripts
+
+            - name: Lint
+              run: npm run lint
+
+            - name: Test
+              run: npm run test
+              env:
+                  APP_SECRET: 1934be4b-253a-4a21-a9b6-b3ea6f10571f
+                  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
