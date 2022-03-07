@@ -1,0 +1,25 @@
+# Use postgres/example user/password credentials
+version: "3.1"
+
+services:
+    db_dev:
+        image: postgres
+        command: postgres -c 'max_connections=200'
+        restart: always
+        environment:
+            POSTGRES_DB: todolist_postgres_dev
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: root
+        ports:
+            - 6655:5432
+
+    db_test:
+        image: postgres
+        command: postgres -c 'max_connections=200'
+        restart: always
+        environment:
+            POSTGRES_DB: todolist_postgres_test
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: root
+        ports:
+            - 6654:5432
