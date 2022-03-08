@@ -22,6 +22,8 @@
         "skipLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@core/*": ["./src/core/*"],
+            "@resources/*": ["./src/resources/*"],
             "@shared/*": ["./src/shared/*"]
         }
     },

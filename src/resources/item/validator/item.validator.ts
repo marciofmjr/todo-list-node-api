@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Joi from 'joi'
-import validator from '@shared/validator/validator'
+import validator from '@shared/validator'
 
 const schema = Joi.object({
   title: Joi.string().required()

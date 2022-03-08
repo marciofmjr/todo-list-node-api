@@ -13,6 +13,8 @@ module.exports = {
     plugins: [
         ['module-resolver', {
             alias: {
+                '@core': './core',
+                '@resources': './resources',
                 '@shared': './shared'
             }
         }]
