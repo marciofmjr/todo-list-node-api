@@ -4,11 +4,11 @@ import model from '../model/item.model'
 
 class ItemController {
   create = async (req: Request, res: Response): Response<Item> => {
-    return this.save(req, res)
+    return model.create(res, req.body)
   }
 
-  private save = async (req: Request, res: Response, id = ''): Response<Item> => {
-    return model.create(res, req.body)
+  update = async (req: Request, res: Response): Response<Item> => {
+    return model.update(res, req.body, req.params.id)
   }
 }
 

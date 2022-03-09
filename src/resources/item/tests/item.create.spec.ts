@@ -1,8 +1,9 @@
 // NODE_ENV=test npx jest src/resources/item/tests/item.create.spec.ts --verbose --detectOpenHandles --bail --forceExit --watchAll
 
 import request from 'supertest'
-import truncate from '@shared/truncate'
+
 import app from '@core/app'
+import truncate from '@shared/truncate'
 
 describe('success', () => {
   beforeEach(async () => await truncate())
