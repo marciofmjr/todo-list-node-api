@@ -6,6 +6,16 @@ import validate from '../validator/item.validator'
 import responder from '@shared/responder'
 
 class ItemModel {
+  get = async (res: Response, id: string): Response<Item> => {
+    try {
+      const item = await database.item.findUnique({ where: { id } })
+      if (!item) return responder.BAD_REQUEST(res, 'item not found')
+      return responder.OK(res, item)
+    } catch (e) {
+      return responder.INTERNAL_SERVER_ERROR(res, e)
+    }
+  }
+
   create = async (res: Response, data: Item): Response<Item> => {
     try {
       const error = await validate(data)

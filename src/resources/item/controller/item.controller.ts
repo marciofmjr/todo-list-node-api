@@ -3,6 +3,10 @@ import { Request, Response } from 'express'
 import model from '../model/item.model'
 
 class ItemController {
+  get = async (req: Request, res: Response): Response<Item> => {
+    return model.get(res, req.params.id)
+  }
+
   create = async (req: Request, res: Response): Response<Item> => {
     return model.create(res, req.body)
   }
