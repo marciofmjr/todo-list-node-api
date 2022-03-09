@@ -26,4 +26,9 @@ describe('error', () => {
     const valid = await validate(payload)
     expect(valid).toBe('"title" is required')
   })
+  it('given payload with title with more than 100 characters, it should return error [3]', async () => {
+    const payload = { title: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys.' }
+    const valid = await validate(payload)
+    expect(valid).toBe('"title" length must be less than or equal to 100 characters long')
+  })
 })

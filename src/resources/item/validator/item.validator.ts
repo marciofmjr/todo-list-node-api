@@ -3,10 +3,10 @@ import Joi from 'joi'
 import validator from '@shared/validator'
 
 const schema = Joi.object({
-  title: Joi.string().required()
+  title: Joi.string().required().max(100)
 })
 
-export default async (data?: any): Promise<string> => {
-  if (data === undefined) data = {}
+export default async <T>(data?: T): Promise<string> => {
+  if (data === undefined) return validator(schema, {})
   return validator(schema, data)
 }

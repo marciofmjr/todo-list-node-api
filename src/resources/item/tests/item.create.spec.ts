@@ -6,7 +6,6 @@ import app from '@core/app'
 
 describe('success', () => {
   beforeEach(async () => await truncate())
-
   it('POST to /items with valid payload, should create item', async () => {
     const response = await request(app)
       .post('/items')
@@ -23,5 +22,18 @@ describe('success', () => {
     delete response.body.updatedAt
 
     expect(response.body).toEqual({ title: 'some item to do here..' })
+  })
+})
+
+describe('errors', () => {
+  beforeEach(async () => await truncate())
+
+  it('POST to /items without title, should not create item', async () => {
+    const response = await request(app)
+      .post('/items')
+      .send({ })
+
+    expect(response.status).toBe(422)
+    expect(response.body).toBe('"title" is required')
   })
 })
