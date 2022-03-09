@@ -4,6 +4,7 @@ import { Response } from 'express'
 import { Item } from '@prisma/client'
 import validate from '../validator/item.validator'
 import responder from '@shared/responder'
+import { Filter } from '@shared/filter'
 
 class ItemModel {
   get = async (res: Response, id: string): Response<Item> => {
@@ -11,6 +12,15 @@ class ItemModel {
       const item = await database.item.findUnique({ where: { id } })
       if (!item) return responder.BAD_REQUEST(res, 'item not found')
       return responder.OK(res, item)
+    } catch (e) {
+      return responder.INTERNAL_SERVER_ERROR(res, e)
+    }
+  }
+
+  list = async (res: Response, filter: Filter): Response<Item[]> => {
+    try {
+      const items = await database.item.findMany(filter)
+      return responder.OK(res, items)
     } catch (e) {
       return responder.INTERNAL_SERVER_ERROR(res, e)
     }

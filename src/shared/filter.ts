@@ -5,12 +5,12 @@ interface Params {
   order?: string
 }
 
-interface Filter {
+export interface Filter {
   take: number
   skip: number
   orderBy: object
   where?: object
-  include?: object
+  include?: never
 }
 
 export default (params?: Params): Filter => {
@@ -25,7 +25,7 @@ export default (params?: Params): Filter => {
   }
 
   if (params.limit && params.limit > 0) {
-    filter.take = params.limit
+    filter.take = parseInt('' + params.limit)
   }
 
   if (params.page && params.page !== 0 && params.page !== 1) {
