@@ -34,8 +34,6 @@ const UNPROCESSABLE_ENTITY = <T>(res: Response, data: T): Response<T> => {
 }
 
 const INTERNAL_SERVER_ERROR = (res: Response, data: any): Response<any> => {
-  console.log('!#!@#!@#', data)
-
   if (data?.message) {
     return responder(res, 500, data.message)
   }
