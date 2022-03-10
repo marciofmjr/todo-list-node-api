@@ -7,6 +7,5 @@ const schema = Joi.object({
 })
 
 export default async <T>(data?: T): Promise<string> => {
-  if (data === undefined) return validator(schema, {})
   return validator(schema, data)
 }

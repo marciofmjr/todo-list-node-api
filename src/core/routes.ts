@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import itemRoutes from '@resources/item/route/item.routes'
+import itemRoutes from '@resources/item/item.routes'
 
 const routes = Router()
 

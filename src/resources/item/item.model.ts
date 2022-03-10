@@ -2,7 +2,7 @@ import database from '@core/database'
 import { Response } from 'express'
 
 import { Item } from '@prisma/client'
-import validate from '../validator/item.validator'
+import validate from './item.validator'
 import responder from '@shared/responder'
 import { Filter } from '@shared/filter'
 

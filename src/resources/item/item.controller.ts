@@ -1,7 +1,7 @@
 import { Item } from '@prisma/client'
 import filter from '@shared/filter'
 import { Request, Response } from 'express'
-import model from '../model/item.model'
+import model from './item.model'
 
 class ItemController {
   get = async (req: Request, res: Response): Response<Item> => {
