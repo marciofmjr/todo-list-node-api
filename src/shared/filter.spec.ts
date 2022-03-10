@@ -2,8 +2,25 @@
 
 import filter from './filter'
 
+it('given empty object params, should return as expected', async () => {
+  const params = filter({})
+  expect(params).toEqual({
+    skip: 0,
+    take: 50,
+    orderBy: { createdAt: 'desc' }
+  })
+})
 it('given empty params, should return as expected', async () => {
   const params = filter()
+  expect(params).toEqual({
+    skip: 0,
+    take: 50,
+    orderBy: { createdAt: 'desc' }
+  })
+})
+
+it('given undefined params, should return as expected', async () => {
+  const params = filter(undefined)
   expect(params).toEqual({
     skip: 0,
     take: 50,

@@ -139,4 +139,10 @@ describe('success', () => {
       { title: 'check the weather' }
     ])
   })
+  it('GET to /items filtering by "a", getting page 1 and limiting to 1, should return a list of items', async () => {
+    const response = await request(app)
+      .get('/items?q=a&page=1&limit=1')
+
+    expect(response.status).toBe(200)
+  })
 })
