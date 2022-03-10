@@ -1,6 +1,7 @@
+import { Request, Response } from 'express'
+
 import { Item } from '@prisma/client'
 import filter from '@shared/filter'
-import { Request, Response } from 'express'
 import model from './item.model'
 
 class ItemController {
@@ -18,6 +19,10 @@ class ItemController {
 
   update = async (req: Request, res: Response): Response<Item> => {
     return model.update(res, req.body, req.params.id)
+  }
+
+  delete = async (req: Request, res: Response): Response<Item> => {
+    return model.delete(res, req.params.id)
   }
 }
 
