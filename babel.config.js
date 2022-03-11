@@ -12,10 +12,11 @@ module.exports = {
     ],
     plugins: [
         ['module-resolver', {
+            root: ['.'],
             alias: {
-                '@core': './core',
-                '@resources': './resources',
-                '@shared': './shared'
+                '@core': './src/core',
+                '@resources': './src/resources',
+                '@shared': './src/shared'
             }
         }]
     ],
