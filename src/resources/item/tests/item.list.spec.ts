@@ -36,13 +36,13 @@ describe('success', () => {
     }
 
     expect(response.body).toEqual([
-      { title: 'check the weather' },
-      { title: 'buy a new notebook' },
-      { title: 'fix home car' },
-      { title: 'pay the bills' },
-      { title: 'clean house' },
-      { title: 'go to super market' },
-      { title: 'go to church' }
+      { title: 'check the weather', done: false },
+      { title: 'buy a new notebook', done: false },
+      { title: 'fix home car', done: false },
+      { title: 'pay the bills', done: false },
+      { title: 'clean house', done: false },
+      { title: 'go to super market', done: false },
+      { title: 'go to church', done: false }
     ])
   })
 
@@ -63,8 +63,8 @@ describe('success', () => {
     }
 
     expect(response.body).toEqual([
-      { title: 'check the weather' },
-      { title: 'pay the bills' }
+      { title: 'check the weather', done: false },
+      { title: 'pay the bills', done: false }
     ])
   })
 
@@ -85,13 +85,13 @@ describe('success', () => {
     }
 
     expect(response.body).toEqual([
-      { title: 'buy a new notebook' },
-      { title: 'check the weather' },
-      { title: 'clean house' },
-      { title: 'fix home car' },
-      { title: 'go to church' },
-      { title: 'go to super market' },
-      { title: 'pay the bills' }
+      { title: 'buy a new notebook', done: false },
+      { title: 'check the weather', done: false },
+      { title: 'clean house', done: false },
+      { title: 'fix home car', done: false },
+      { title: 'go to church', done: false },
+      { title: 'go to super market', done: false },
+      { title: 'pay the bills', done: false }
     ])
   })
   it('GET to /items getting page 1,limiting to 3 and ordering by title:desc, should return a list of items', async () => {
@@ -111,9 +111,9 @@ describe('success', () => {
     }
 
     expect(response.body).toEqual([
-      { title: 'pay the bills' },
-      { title: 'go to super market' },
-      { title: 'go to church' }
+      { title: 'pay the bills', done: false },
+      { title: 'go to super market', done: false },
+      { title: 'go to church', done: false }
     ])
   })
 
@@ -134,9 +134,9 @@ describe('success', () => {
     }
 
     expect(response.body).toEqual([
-      { title: 'fix home car' },
-      { title: 'clean house' },
-      { title: 'check the weather' }
+      { title: 'fix home car', done: false },
+      { title: 'clean house', done: false },
+      { title: 'check the weather', done: false }
     ])
   })
   it('GET to /items filtering by "a", getting page 1 and limiting to 1, should return a list of items', async () => {

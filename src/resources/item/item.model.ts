@@ -37,6 +37,26 @@ class ItemModel {
     return responder.OK(res, item)
   }
 
+  patch = async (res: Response, data: Item, id: string): Response<Item> => {
+    let item = await database.item.findUnique({ where: { id } })
+    if (!item) return responder.BAD_REQUEST(res, 'item not found')
+
+    const invalidProps = []
+    Object.keys(data).forEach(function (key) {
+      if (![ 'title', 'done' ].includes(key)) {
+        invalidProps.push(key)
+      }
+    })
+
+    if (invalidProps.length) {
+      const text = invalidProps.length > 1 ? 'properties' : 'property'
+      return responder.BAD_REQUEST(res, `invalid ${text}: ${invalidProps.join(', ')}`)
+    }
+
+    item = await database.item.update({ data, where: { id } })
+    return responder.OK(res, item)
+  }
+
   delete = async (res: Response, id: string): Response<Item> => {
     const item = await database.item.findUnique({ where: { id } })
     if (!item) return responder.BAD_REQUEST(res, 'item not found')

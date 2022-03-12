@@ -6,5 +6,6 @@ export default (routes: Router): void => {
   routes.get('/items', controller.list)
   routes.post('/items', controller.create)
   routes.put('/items/:id', controller.update)
+  routes.patch('/items/:id', controller.patch)
   routes.delete('/items/:id', controller.delete)
 }

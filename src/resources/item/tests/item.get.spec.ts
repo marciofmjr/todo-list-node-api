@@ -29,7 +29,7 @@ describe('success', () => {
     delete response.body.createdAt
     delete response.body.updatedAt
 
-    expect(response.body).toEqual({ title: 'go to super market' })
+    expect(response.body).toEqual({ title: 'go to super market', done: false })
   })
 })
 

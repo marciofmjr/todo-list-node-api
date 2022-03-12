@@ -9,6 +9,6 @@ describe('success', () => {
       .get('/')
 
     expect(response.status).toBe(200)
-    expect(response.body).toEqual({ message: 'Welcome to ToDo List Api' })
+    expect(response.body).toEqual({ message: 'Welcome to To Do List Api' })
   })
 })

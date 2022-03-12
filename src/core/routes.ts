@@ -4,7 +4,7 @@ import itemRoutes from '@resources/item/item.routes'
 const routes = Router()
 
 routes.get('/', (req: Request, res: Response): Response => res.json({
-  message: 'Welcome to ToDo List Api'
+  message: 'Welcome to To Do List Api'
 }))
 
 itemRoutes(routes)

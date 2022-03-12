@@ -17,6 +17,10 @@ class ItemController {
     return model.create(res, req.body)
   }
 
+  patch = async (req: Request, res: Response): Response<Item> => {
+    return model.patch(res, req.body, req.params.id)
+  }
+
   update = async (req: Request, res: Response): Response<Item> => {
     return model.update(res, req.body, req.params.id)
   }
