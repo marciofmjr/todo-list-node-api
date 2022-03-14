@@ -64,6 +64,11 @@ class ItemModel {
     await database.item.delete({ where: { id } })
     return responder.OK(res, item)
   }
+
+  deleteAll = async (res: Response): Response => {
+    await database.item.deleteMany()
+    return responder.OK(res, [])
+  }
 }
 
 export default new ItemModel()

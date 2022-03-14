@@ -1,4 +1,4 @@
-// NODE_ENV=test npx jest src/resources/item/tests/item.delete.spec.ts --verbose --detectOpenHandles --bail --forceExit --watchAll
+// NODE_ENV=test npx jest src/resources/item/tests/item.delete.one.spec.ts --verbose --detectOpenHandles --bail --forceExit --watchAll
 
 import request from 'supertest'
 

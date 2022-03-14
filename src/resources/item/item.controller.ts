@@ -28,6 +28,10 @@ class ItemController {
   delete = async (req: Request, res: Response): Response<Item> => {
     return model.delete(res, req.params.id)
   }
+
+  deleteAll = async (req: Request, res: Response): Response<Item> => {
+    return model.deleteAll(res)
+  }
 }
 
 export default new ItemController()
