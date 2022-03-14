@@ -8,4 +8,5 @@ export default (routes: Router): void => {
   routes.put('/items/:id', controller.update)
   routes.patch('/items/:id', controller.patch)
   routes.delete('/items/:id', controller.delete)
+  routes.delete('/items', controller.deleteAll)
 }
