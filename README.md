@@ -6,6 +6,10 @@
   <h3 align="center">To Do List: <strong>API</strong></h3>
 </div>
 
+
+### Preview
+O projeto está publicado e pode ser acessado através do link: https://todo-list-ionic.vercel.app/
+
 ### Sobre o projeto
 
 Esse projeto foi desenvolvido com o intuito de estudar e melhorar as técnicas de desenvolvimento usando novas tecnologias, ferramentas e padrões.
@@ -20,6 +24,10 @@ Essa aplicação é uma lista de tarefas, usada para gerenciar items que precisa
 
 <strong>Esse repositório remete ao projeto do backend</strong>, <a href="https://github.com/marciofmjr/todo-list-ionic" target="_blank">para acessar o projeto do frontend, clique aqui</a>
 
+<div align="center">
+  <img src="https://github.com/marciofmjr/todo-list-ionic/raw/master/docs/images/preview.png" alt="Logo" width="600">
+</div>
+
 ### Construído com
 
 Esse projeto foi construído utilizando as tecnologias, ferramentas e técnicas abaixo:
@@ -33,7 +41,7 @@ Esse projeto foi construído utilizando as tecnologias, ferramentas e técnicas 
 * [Faker](https://github.com/tamnil/Faker-br)
 * [Husky](https://github.com/typicode/husky)
 * [Github Actions](https://github.com/features/actions)
-* [Vercel](https://vercel.com/)
+* [Heroku](https://www.heroku.com/)
 
 ### Cobertura de testes:
 <img src="docs/images/tests.png" alt="Cobertura de testes" width="700">
